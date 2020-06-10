@@ -1,4 +1,5 @@
 import express from "express";
+import ejsLocals from "ejs-locals";
 import morgan from "morgan";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
@@ -12,6 +13,7 @@ const app = express();
 
 app.set("view engine", "ejs");
 app.set("views", "./views");
+app.engine("ejs", ejsLocals);
 
 //middlewares
 app.use(cookieParser());
