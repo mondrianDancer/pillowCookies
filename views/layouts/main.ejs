@@ -6,14 +6,16 @@
       src="https://kit.fontawesome.com/a8d1dbcb7c.js"
       crossorigin="anonymous"
     ></script>
-    <title>Pillow cookies</title>
+    <title><%= siteName %></title>
   </head>
   <header class="header">
-    <div class="header__column"><h1>🍪 Pillow Cookies</h1></div>
+    <div class="header__column">
+      <a href="<%= routes.home %>"><h1>🍪 <%= siteName %></h1></a>
+    </div>
     <div class="header__column">
       <ul>
-        <li><a href="#">Join</a></li>
-        <li><a href="#">Login</a></li>
+        <li><a href="<%= routes.join %>">Join</a></li>
+        <li><a href="<%= routes.login %>">Login</a></li>
       </ul>
     </div>
   </header>
@@ -23,6 +25,6 @@
   </section>
   <footer>
     <i class="fas fa-cookie-bite"></i>
-    Pillow Cookies <%= new Date().getFullYear() %>
+    <%= siteName %> <%= new Date().getFullYear() %>
   </footer>
 </html>
