@@ -1,0 +1,14 @@
+<% layout('layouts/main') -%>
+
+<div class="form-container">
+  <form action="<%=routes.editProfile%>" , method="post">
+    <label for="avatar">Avatar</label>
+    <input type="file" , id="avatar" , name="avatar" />
+    <input type="text" , placeholder="Name" , name="name" />
+    <input type="email" , placeholder="Email" , name="email" />
+    <input type="submit" , value="Update Profile" />
+    <a href="/users$<%=routes.changePassword%>" class="form-container__link"
+      >changePassword</a
+    >
+  </form>
+</div>

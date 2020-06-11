@@ -1,18 +1,24 @@
+import { wordDB } from "../db";
+
 export const home = (req, res) => {
-  res.render("home");
+  res.render("home", { wordDB });
 };
 export const search = (req, res) => {
-  res.send("Search");
+  //console.log(req.query.term);
+  const {
+    query: { term: searchingBy, wordDB },
+  } = req;
+  res.render("search", { searchingBy });
 };
 export const words = (req, res) => {
-  res.send("Words");
+  res.render("word");
 };
 export const upload = (req, res) => {
-  res.send("upload");
+  res.render("upload");
 };
 export const editWord = (req, res) => {
-  res.send("editWord");
+  res.render("editWord");
 };
 export const deleteWord = (req, res) => {
-  res.send("deleteWord");
+  res.render("deleteWord");
 };

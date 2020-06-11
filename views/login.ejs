@@ -1,0 +1,19 @@
+<% layout('layouts/main') -%>
+
+<div class="form-container">
+  <form action="<%=routes.login%>" , method="post">
+    <input type="email" , name="email" , placeholder="email" />
+    <input type="password" , name="password" , placeholder="password" />
+    <input type="submit" , value="Login" />
+    <div class="social-login">
+      <button>
+        <span><i class="fab fa-github"></i> Continue with Github</span>
+      </button>
+    </div>
+    <div class="social-login">
+      <button>
+        <span><i class="fab fa-facebook"></i> Continue with Facebook</span>
+      </button>
+    </div>
+  </form>
+</div>

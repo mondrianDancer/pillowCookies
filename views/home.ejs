@@ -1,3 +1,10 @@
 <% layout('layouts/main') -%>
 
-<h1>I am the template</h1>
+<div class="words">
+  <% wordDB.forEach(val=>{ %>
+  <p><%= val.text %></p>
+  <h2><%= val.title %></h1>
+  <p><%= val.description %></p>
+  <h6><%= val.views %></h6>
+  <%}) %>
+</div>
