@@ -1,7 +1,7 @@
 <% layout('layouts/main') -%>
 
 <div class="words">
-  <% wordDB.forEach(val=>{ %>
+  <% words.forEach(val=>{ %>
     <a href="<%=routes.wordDetail(val.id)%>">
     <p><%= val.text %></p>
     <h2><%= val.title %></h1>

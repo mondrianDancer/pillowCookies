@@ -1,7 +1,14 @@
 import routes from "../routes";
+import Word from "../models/Word";
 
-export const home = (req, res) => {
-  res.render("home", { wordDB });
+export const home = async (req, res) => {
+  try {
+    const words = await Word.find({});
+    res.render("home", { words });
+  } catch (error) {
+    console.log(error);
+    res.render("home", { words: [] });
+  }
 };
 export const search = (req, res) => {
   //console.log(req.query.term);
