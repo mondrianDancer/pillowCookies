@@ -6,21 +6,27 @@
       src="https://kit.fontawesome.com/a8d1dbcb7c.js"
       crossorigin="anonymous"
     ></script>
-    <title<%= siteName %></title>
+    <title><%= siteName %></title>
   </head>
   <header class="header">
     <div class="header__column">
       <a href="<%= routes.home %>"><h1>🍪 <%= siteName %></h1></a>
     </div>
     <div class="header__column">
-        <form action="<%=routes.search%>", method="get">
-            <input type="text", placeholder="Search by term...", name="term">
-        </form>
+      <form action="<%=routes.search%>" , method="get">
+        <input type="text" , placeholder="Search by term..." , name="term" />
+      </form>
     </div>
     <div class="header__column">
       <ul>
-        <li><a href="<%= routes.join %>">Join</a></li>
-        <li><a href="<%= routes.login %>">Login</a></li>
+        <% if(!user.isAuthenticated){ %>
+        <li><a href="<%=routes.join%>">Join</a></li>
+        <li><a href="<%=routes.login%>">Login</a></li>
+        <% } else{ %>
+        <li><a href="/words<%= routes.upload %>">Upload</a></li>
+        <li><a href="<%=routes.userDetail(user.id)%>">Profile</a></li>
+        <li><a href="<%=routes.logout%>">Logout</a></li>
+        <% } %>
       </ul>
     </div>
   </header>

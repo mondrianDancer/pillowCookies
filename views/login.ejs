@@ -2,8 +2,24 @@
 
 <div class="form-container">
   <form action="<%=routes.login%>" , method="post">
-    <input type="email" , name="email" , placeholder="email" />
-    <input type="password" , name="password" , placeholder="password" />
+    <input
+      type="email"
+      ,
+      name="email"
+      ,
+      placeholder="email"
+      ,
+      required="true"
+    />
+    <input
+      type="password"
+      ,
+      name="password"
+      ,
+      placeholder="password"
+      ,
+      required="true"
+    />
     <input type="submit" , value="Login" />
     <div class="social-login">
       <button>

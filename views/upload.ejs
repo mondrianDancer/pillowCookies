@@ -1,11 +1,17 @@
 <% layout('layouts/main') -%>
 
 <div class="form-container">
-  <form action="/words$<%=routes.upload%>" , method="POST">
+  <form action="/words<%= routes.upload %>" , method="POST">
     <label for="text">Text</label>
-    <input type="text" , id="text" , name="text" />
-    <input type="text" , placeholder="Title" , name="title" />
-    <textarea name="decription" , placeholder="Description"></textarea>
+    <input type="text" , id="text" , name="text" , required="true" />
+    <input type="text" , placeholder="Title" , name="title" , required="true" />
+    <textarea
+      name="decription"
+      ,
+      placeholder="Description"
+      ,
+      required="true"
+    ></textarea>
     <input type="submit" , value="Upload Text" />
   </form>
 </div>

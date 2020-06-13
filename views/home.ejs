@@ -2,9 +2,11 @@
 
 <div class="words">
   <% wordDB.forEach(val=>{ %>
-  <p><%= val.text %></p>
-  <h2><%= val.title %></h1>
-  <p><%= val.description %></p>
-  <h6><%= val.views %></h6>
+    <a href="<%=routes.wordDetail(val.id)%>">
+    <p><%= val.text %></p>
+    <h2><%= val.title %></h1>
+    <p><%= val.description %></p>
+    <h6><%= val.views %></h6>
+    </a>
   <%}) %>
 </div>
