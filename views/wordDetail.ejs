@@ -1,3 +1,12 @@
 <% layout('layouts/main') -%>
 
 <h1>Word Detail</h1>
+<div class="word__container">
+  <%=word.text%>
+</div>
+<div class="word__info">
+  <h5 class="word__title"><%=word.title%></h5>
+  <span class="word__views"><%=word.views%></span>
+  <p class="word__description"><%=word.description%></p>
+  <a href="<%=routes.editWord%>">Edit Word</a>
+</div>

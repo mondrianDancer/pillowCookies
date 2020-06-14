@@ -21,18 +21,30 @@ export const getUpload = (req, res) => {
   res.render("upload");
 };
 
-export const postUpload = (req, res) => {
+export const postUpload = async (req, res) => {
   const {
     body: { text, title, description },
   } = req;
-  res.redirect(routes.wordDetail(324393));
+  const newWord = await Word.create({ text, title, description });
+  res.redirect(routes.wordDetail(newWord.id));
 };
+
 export const words = (req, res) => {
   res.render("word");
 };
-export const wordDetail = (req, res) => {
-  res.render("wordDetail");
+
+export const wordDetail = async (req, res) => {
+  const {
+    params: { id },
+  } = req;
+  try {
+    const word = await Word.findById(id);
+    res.render("wordDetail", { word });
+  } catch (error) {
+    res.redirect(routes.home);
+  }
 };
+
 export const editWord = (req, res) => {
   res.render("editWord");
 };
