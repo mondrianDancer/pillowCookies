@@ -10,3 +10,10 @@
   <p class="word__description"><%=word.description%></p>
   <a href="<%= routes.editWord(word.id) %>">Edit Word</a>
 </div>
+<div class="word__comments">
+  <%if(word.comments.length === 1){%>
+  <span class="word__comment-number">1 comment</span>
+  <%}else{%>
+  <span class="word__comment-number"><%=word.comments.length%> comments</span>
+  <%}%>
+</div>

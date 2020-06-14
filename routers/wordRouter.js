@@ -22,6 +22,6 @@ wordRouter.get(routes.wordDetail(), wordDetail);
 wordRouter.get(routes.editWord(), getEditWord);
 wordRouter.post(routes.editWord(), postEditWord);
 
-wordRouter.get(routes.deleteWord, deleteWord);
+wordRouter.get(routes.deleteWord(), deleteWord);
 
 export default wordRouter;

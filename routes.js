@@ -51,7 +51,13 @@ const routes = {
       return EDIT_WORD;
     }
   },
-  deleteWord: DELETE_WORD,
+  deleteWord: (id) => {
+    if (id) {
+      return `/words/${id}/delete`;
+    } else {
+      return DELETE_WORD;
+    }
+  },
 };
 
 export default routes;

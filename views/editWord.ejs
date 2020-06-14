@@ -6,7 +6,7 @@
     <textarea name="description" , placeholder="Description"></textarea>
     <input type="submit" , value="Update Word" />
     <a
-      href="/words<%=routes.deleteWord%>"
+      href="<%=routes.deleteWord(word.id)%>"
       class="form-container__link form-container__link--delete"
       >Delete Word</a
     >

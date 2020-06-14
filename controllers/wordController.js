@@ -3,7 +3,7 @@ import Word from "../models/Word";
 
 export const home = async (req, res) => {
   try {
-    const words = await Word.find({});
+    const words = await Word.find({}).sort({ _id: -1 });
     res.render("home", { words });
   } catch (error) {
     console.log(error);
@@ -11,12 +11,20 @@ export const home = async (req, res) => {
   }
 };
 
-export const search = (req, res) => {
+export const search = async (req, res) => {
   //console.log(req.query.term);
   const {
     query: { term: searchingBy },
   } = req;
-  res.render("search", { searchingBy, wordDB });
+  let words = [];
+  try {
+    words = await Word.find({
+      title: { $regex: searchingBy, $options: "i" },
+    });
+  } catch (error) {
+    console.log(error);
+  }
+  res.render("search", { searchingBy, words });
 };
 
 export const getUpload = (req, res) => {
@@ -72,6 +80,14 @@ export const postEditWord = async (req, res) => {
   }
 };
 
-export const deleteWord = (req, res) => {
-  res.render("deleteWord");
+export const deleteWord = async (req, res) => {
+  const {
+    params: { id },
+  } = req;
+  try {
+    await Word.findOneAndDelete({ _id: id });
+    res.redirect(routes.home);
+  } catch (error) {
+    res.redirect(routes.home);
+  }
 };

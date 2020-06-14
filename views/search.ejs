@@ -4,7 +4,10 @@
   <h3>Searching by <%= searchingBy %></h3>
 </div>
 <div class="search__words">
-  <% wordDB.forEach(val=>{ %>
+  <%if(words.length===0){%>
+    <h5>No Videos Found</h5>
+  <%}%>
+  <% words.forEach(val=>{ %>
   <p><%= val.text %></p>
   <h2><%= val.title %></h1>
   <p><%= val.description %></p>
