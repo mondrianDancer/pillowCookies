@@ -1,12 +1,12 @@
 <% layout('layouts/main') -%>
 
 <div class="form-container">
-  <form action="/words$<%=routes.editWord%>" , method="POST">
+  <form action="<%=routes.editWord(word.id)%>" , method="POST">
     <input type="text" , placeholder="Title" , name="title" />
     <textarea name="description" , placeholder="Description"></textarea>
     <input type="submit" , value="Update Word" />
     <a
-      href="/words$<%=routes.deleteWord%>"
+      href="/words<%=routes.deleteWord%>"
       class="form-container__link form-container__link--delete"
       >Delete Word</a
     >

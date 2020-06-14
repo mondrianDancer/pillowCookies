@@ -5,7 +5,8 @@ import {
   getUpload,
   postUpload,
   wordDetail,
-  editWord,
+  getEditWord,
+  postEditWord,
   deleteWord,
 } from "../controllers/wordController";
 
@@ -17,7 +18,10 @@ wordRouter.get(routes.upload, getUpload);
 wordRouter.post(routes.upload, postUpload);
 
 wordRouter.get(routes.wordDetail(), wordDetail);
-wordRouter.get(routes.editWord, editWord);
+
+wordRouter.get(routes.editWord(), getEditWord);
+wordRouter.post(routes.editWord(), postEditWord);
+
 wordRouter.get(routes.deleteWord, deleteWord);
 
 export default wordRouter;

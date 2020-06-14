@@ -15,8 +15,8 @@ const CHANGE_PASSWORD = "/change-password";
 
 const WORDS = "/words";
 const UPLOAD = "/upload";
-const WORD_DETAIL = "/:id";
 const EDIT_WORD = "/:id/edit";
+const WORD_DETAIL = "/:id";
 const DELETE_WORD = "/:id/delete";
 
 const routes = {
@@ -44,7 +44,13 @@ const routes = {
       return WORD_DETAIL;
     }
   },
-  editWord: EDIT_WORD,
+  editWord: (id) => {
+    if (id) {
+      return `/words/${id}/edit`;
+    } else {
+      return EDIT_WORD;
+    }
+  },
   deleteWord: DELETE_WORD,
 };
 

@@ -8,5 +8,5 @@
   <h5 class="word__title"><%=word.title%></h5>
   <span class="word__views"><%=word.views%></span>
   <p class="word__description"><%=word.description%></p>
-  <a href="<%=routes.editWord%>">Edit Word</a>
+  <a href="<%= routes.editWord(word.id) %>">Edit Word</a>
 </div>
