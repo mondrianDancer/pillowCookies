@@ -7,35 +7,38 @@
       crossorigin="anonymous"
     ></script>
     <title><%= siteName %></title>
+    <%-stylesheets%>
   </head>
-  <header class="header">
-    <div class="header__column">
-      <a href="<%= routes.home %>"><h1>🍪 <%= siteName %></h1></a>
-    </div>
-    <div class="header__column">
-      <form action="<%=routes.search%>" , method="get">
-        <input type="text" , placeholder="Search by term..." , name="term" />
-      </form>
-    </div>
-    <div class="header__column">
-      <ul>
-        <% if(!user.isAuthenticated){ %>
-        <li><a href="<%=routes.join%>">Join</a></li>
-        <li><a href="<%=routes.login%>">Login</a></li>
-        <% } else{ %>
-        <li><a href="/words<%= routes.upload %>">Upload</a></li>
-        <li><a href="<%=routes.userDetail(user.id)%>">Profile</a></li>
-        <li><a href="<%=routes.logout%>">Logout</a></li>
-        <% } %>
-      </ul>
-    </div>
-  </header>
-
-  <section>
-    <%- body -%>
-  </section>
-  <footer>
-    <i class="fas fa-cookie-bite"></i>
-    <%= siteName %> <%= new Date().getFullYear() %>
-  </footer>
+  <body>
+    <header class="header">
+      <div class="header__column">
+        <a href="<%= routes.home %>"><h1>🍪 <%= siteName %></h1></a>
+      </div>
+      <div class="header__column">
+        <form action="<%=routes.search%>" , method="get">
+          <input type="text" , placeholder="Search by term..." , name="term" />
+        </form>
+      </div>
+      <div class="header__column">
+        <ul>
+          <% if(!user.isAuthenticated){ %>
+          <li><a href="<%=routes.join%>">Join</a></li>
+          <li><a href="<%=routes.login%>">Login</a></li>
+          <% } else{ %>
+          <li><a href="/words<%= routes.upload %>">Upload</a></li>
+          <li><a href="<%=routes.userDetail(user.id)%>">Profile</a></li>
+          <li><a href="<%=routes.logout%>">Logout</a></li>
+          <% } %>
+        </ul>
+      </div>
+    </header>
+    <section>
+      <%- body -%>
+    </section>
+    <footer>
+      <i class="fas fa-cookie-bite"></i>
+      <%= siteName %> <%= new Date().getFullYear() %>
+    </footer>
+    <%-scripts%>
+  </body>
 </html>

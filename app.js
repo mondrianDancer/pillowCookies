@@ -16,6 +16,8 @@ app.set("view engine", "ejs");
 app.set("views", "./views");
 app.engine("ejs", ejsLocals);
 
+app.use("/static", express.static("static"));
+
 //middlewares
 app.use(cookieParser());
 app.use(bodyParser.json());
