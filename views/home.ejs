@@ -1,14 +1,16 @@
 <% layout('layouts/main') -%>
-<% script('/static/main.js') -%>
 <% stylesheet('/static/styles.css') -%>
+<% script('/static/main.js') -%>
 
 <div class="words">
-  <% words.forEach(val=>{ %>
+    <% words.forEach(val=>{ %>
     <a href="<%=routes.wordDetail(val.id)%>">
-    <p><%= val.text %></p>
-    <h2><%= val.title %></h1>
-    <p><%= val.description %></p>
-    <h6><%= val.views %></h6>
-    </a>
-  <%}) %>
+        <div class="word">
+          <h2 class="title"><%= val.title %></h1>
+          <p class="description"><%= val.description %></p>
+          <p class="text"><%= val.text %></p>
+        </div>
+        <h6 class="views"><%= val.views %></h6>
+      </a>
+    <%}) %>
 </div>
