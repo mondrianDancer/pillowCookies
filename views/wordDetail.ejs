@@ -1,18 +1,36 @@
 <% layout('layouts/main') -%> <% stylesheet('/static/styles.css') -%>
-<h1>Word Detail</h1>
-<div class="word__container">
-  <%=word.text%>
-</div>
-<div class="word__info">
-  <h5 class="word__title"><%=word.title%></h5>
-  <span class="word__views"><%=word.views%></span>
-  <p class="word__description"><%=word.description%></p>
-  <a href="<%= routes.editWord(word.id) %>">Edit Word</a>
-</div>
-<div class="word__comments">
-  <%if(word.comments.length === 1){%>
-  <span class="word__comment-number">1 comment</span>
-  <%}else{%>
-  <span class="word__comment-number"><%=word.comments.length%> comments</span>
-  <%}%>
-</div>
+
+<article class="post">
+  <!-- <div>
+    <div
+      class="absolute-bg"
+      style="
+        background-image: url('https://source.unsplash.com/f9C8ytxaItI/2000x1200');
+      "
+    ></div>
+  </div> -->
+  <div class="post__container">
+    <span class="post__category"><%=word.description%></span>
+    <div class="post__content">
+      <header>
+        <time class="post__time"><%=word.createAt%>></time>
+        <h1 class="post__header">
+          <span><%=word.title%></span>
+        </h1>
+      </header>
+      <div class="word__comments">
+        <%if(word.comments.length === 1){%>
+        <span class="word__comment-number">1 comment</span>
+        <%}else{%>
+        <span class="word__comment-number"
+          ><%=word.comments.length%> comments</span
+        >
+        <%}%>
+      </div>
+      <p class="post__text"><%=word.text%></p>
+    </div>
+    <div class="post__link">
+      <a href="<%= routes.editWord(word.id) %>">Edit Word</a>
+    </div>
+  </div>
+</article>

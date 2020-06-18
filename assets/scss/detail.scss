@@ -1,0 +1,168 @@
+@import "config/variables";
+
+/**
+  * Components
+  */
+.post {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  border: 0.5em solid $color-white;
+
+  @media (min-width: $mq-md) {
+    display: flex;
+    min-height: 40em;
+  }
+
+  & > *:first-child {
+    position: relative;
+    height: 14em;
+
+    @media (min-width: $mq-sm) {
+      height: 18em;
+    }
+
+    @media (min-width: $mq-md) {
+      flex-basis: 50%;
+      max-width: 50%;
+      height: auto;
+    }
+
+    @media (min-width: $mq-xl) {
+      flex-basis: 60%;
+      max-width: 60%;
+    }
+  }
+
+  & > *:last-child {
+    @media (min-width: $mq-md) {
+      flex-basis: 50%;
+      max-width: 50%;
+    }
+
+    @media (min-width: $mq-xl) {
+      flex-basis: 40%;
+      max-width: 40%;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2em;
+    overflow-y: auto;
+  }
+
+  &__category {
+    position: relative;
+    font-weight: 600;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    overflow: hidden;
+
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+
+      height: 2px;
+      width: 3em;
+
+      background-color: $color-black;
+      animation: slide-in 1s ease-in both 0.5s;
+    }
+  }
+
+  &__content {
+    padding: 2em 0;
+
+    @media (min-width: $mq-md) {
+      padding: 0 4em;
+    }
+  }
+
+  &__time {
+    display: inline-block;
+    margin-bottom: 0.5em;
+
+    font-weight: 600;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  &__header {
+    overflow: hidden;
+
+    span {
+      display: inline-block;
+      animation: slide-up 0.8s ease-in-out both;
+    }
+  }
+
+  &__text {
+    font-weight: 300;
+    animation: fade-in 0.8s ease-in-out both 0.5s;
+  }
+
+  &__link {
+    text-align: right;
+  }
+}
+
+/**
+  * Helpers
+  */
+.absolute-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  height: 100%;
+  width: 100%;
+
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  animation: fade-in 0.8s ease-in-out both 1s;
+}
+
+/**
+  * Animations
+  */
+@keyframes slide-in {
+  0% {
+    transform: translate3d(-100%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

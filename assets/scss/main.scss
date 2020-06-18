@@ -122,3 +122,23 @@ a {
     }
   }
 }
+
+footer {
+  margin: 20px 0;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  i {
+    color: rgba(0, 0, 0, 0.2);
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  .footer__text {
+    color: rgba(0, 0, 0, 0.2);
+    font-weight: 300;
+    margin-bottom: 10px;
+  }
+}
