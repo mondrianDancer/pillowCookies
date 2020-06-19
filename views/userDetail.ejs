@@ -1,2 +1,8 @@
 <% layout('layouts/main') -%> <% stylesheet('/static/styles.css') -%>
-<h1>UserDetail <%=user.id%></h1>
+
+<div class="user-profile">
+  <div class="user-profile__header">
+    <img src="<%=user.avatarUrl%>" class="avatar" />
+    <h4 class="profile__username"><%=user.name%></h4>
+  </div>
+</div>

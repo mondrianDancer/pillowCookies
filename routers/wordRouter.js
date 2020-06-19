@@ -9,19 +9,20 @@ import {
   postEditWord,
   deleteWord,
 } from "../controllers/wordController";
+import { uploadWord, onlyPrivate } from "../middleware";
 
 const wordRouter = express.Router();
 
 wordRouter.get(routes.words, words);
 
-wordRouter.get(routes.upload, getUpload);
-wordRouter.post(routes.upload, postUpload);
+wordRouter.get(routes.upload, onlyPrivate, getUpload);
+wordRouter.post(routes.upload, onlyPrivate, postUpload);
 
 wordRouter.get(routes.wordDetail(), wordDetail);
 
-wordRouter.get(routes.editWord(), getEditWord);
-wordRouter.post(routes.editWord(), postEditWord);
+wordRouter.get(routes.editWord(), onlyPrivate, getEditWord);
+wordRouter.post(routes.editWord(), onlyPrivate, postEditWord);
 
-wordRouter.get(routes.deleteWord(), deleteWord);
+wordRouter.get(routes.deleteWord(), onlyPrivate, deleteWord);
 
 export default wordRouter;
